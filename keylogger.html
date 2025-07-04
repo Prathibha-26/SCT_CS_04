@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Keylogger Simulator</title>
+  <style>
+    body { font-family: Arial; margin: 30px; }
+    textarea { width: 100%; height: 100px; padding: 10px; }
+    #log { margin-top: 20px; padding: 10px; border: 1px solid #ccc; min-height: 60px; background: #f9f9f9; }
+  </style>
+</head>
+<body>
+  <h2>⌨️ Keylogger Simulator (Safe)</h2>
+  
+  <p>Type inside the box below. Your keystrokes will be logged in real-time.</p>
+  <textarea id="inputArea" placeholder="Start typing..." onkeydown="logKey(event)"></textarea>
+
+  <div>
+    <h3>Logged Keystrokes:</h3>
+    <div id="log"></div>
+  </div>
+
+  <script>
+    let logData = "";
+
+    function logKey(event) {
+      const key = event.key;
+      if (key === "Enter") {
+        logData += "[Enter] ";
+      } else if (key === " ") {
+        logData += "[Space] ";
+      } else {
+        logData += key + " ";
+      }
+      document.getElementById("log").innerText = logData;
+    }
+  </script>
+</body>
+</html>
